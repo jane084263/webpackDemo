@@ -1,6 +1,8 @@
 import _ from "lodash";
 import "./style.css";
 import Cute from "./cute.jpg";
+import Data from "./data.xml";
+
 function component() {
   var element = document.createElement("div");
   element.innerHTML = _.join(["hello", "webpack"], " ");
@@ -14,7 +16,7 @@ function component() {
 
   element.appendChild(myIcon);
   element.appendChild(spanEL);
-
+  console.log(Data);
   return element;
 }
 
