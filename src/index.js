@@ -7,7 +7,14 @@ function component() {
   element.classList.add("hello");
   var myIcon = new Image();
   myIcon.src = Cute;
+
+  var spanEL = document.createElement("span");
+  spanEL.innerHTML = "&#xe720;";
+  spanEL.classList.add("m_buy");
+
   element.appendChild(myIcon);
+  element.appendChild(spanEL);
+
   return element;
 }
 
