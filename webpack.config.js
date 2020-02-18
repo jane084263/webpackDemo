@@ -8,10 +8,10 @@ module.exports = {
     app: "./src/index.js"
   },
   devtool: "inline-source-map",
-  devServer: {
-    contentBase: "./dist"
-    // hot: true
-  },
+  // devServer: {
+  //   contentBase: "./dist"
+  //   // hot: true
+  // },
   plugins: [
     new HtmlWebpackPlugin({
       title: "outPutManagement"
@@ -22,6 +22,7 @@ module.exports = {
   ],
   output: {
     filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/"
   }
 };
