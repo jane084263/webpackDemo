@@ -5,8 +5,7 @@ const webpack = require("webpack");
 
 module.exports = {
   entry: {
-    app: "./src/index.js",
-    another: "./src/another-bundle.js"
+    app: "./src/index.js"
   },
   devtool: "inline-source-map",
   devServer: {
@@ -25,10 +24,5 @@ module.exports = {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
     publicPath: "/"
-  },
-  optimization: {
-    splitChunks: {
-      chunks: "all"
-    }
   }
 };
