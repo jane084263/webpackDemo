@@ -13,15 +13,16 @@ module.exports = {
     hot: true
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: "outPutManagement"
-    }),
     new CleanWebpackPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new HtmlWebpackPlugin({
+      title: "catching"
+    }),
+
+    // new webpack.NamedModulesPlugin(),
+    // new webpack.HotModuleReplacementPlugin()
   ],
   output: {
-    filename: "[name].bundle.js",
+    filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
     publicPath: "/"
   }
