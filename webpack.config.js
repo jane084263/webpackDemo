@@ -12,6 +12,10 @@ module.exports = {
     contentBase: "./dist",
     hot: true
   },
+  mode: "production",
+  optimization: {
+    usedExports: true
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: "outPutManagement"

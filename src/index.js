@@ -22,12 +22,20 @@
 //   });
 // }
 
+import { cube } from "./math.js";
+
 async function getComponent() {
-  const element = document.createElement("div");
-  const { default: _ } = await import(
-    /* webpackChunkName: "lodash" */ "lodash"
+  // const element = document.createElement("div");
+  // const { default: _ } = await import(
+  //   /* webpackChunkName: "lodash" */ "lodash"
+  // );
+  // element.innerHTML = _.join(["Hello", "webpack"], " ");
+  // return element;
+
+  const element = document.createElement("pre");
+  element.innerHTML = ["Hello webpack!", "5 cubed is equal to " + cube(5)].join(
+    "\n\n"
   );
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
   return element;
 }
 
