@@ -16,6 +16,18 @@ module.exports = {
   optimization: {
     usedExports: true
   },
+  module: {
+    rules: [
+      {
+        test: require.resolve("./src/index.js"),
+        use: "imports-loader?this=>window"
+      },
+      {
+        test: require.resolve("./src/global.js"),
+        use: "exports-loader?file,parse=helpers.parse"
+      }
+    ]
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
