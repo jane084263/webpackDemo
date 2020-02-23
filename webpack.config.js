@@ -17,16 +17,24 @@ module.exports = {
     usedExports: true
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: "outPutManagement"
-    }),
     new CleanWebpackPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new HtmlWebpackPlugin({
+      title: "catching"
+    }),
+
+    new webpack.ProvidePlugin({
+      join: ["lodash", "join"]
+    })
+
+    // new webpack.NamedModulesPlugin(),
+    // new webpack.HotModuleReplacementPlugin()
   ],
   output: {
-    filename: "[name].bundle.js",
+    filename: "[name].[content].js",
     path: path.resolve(__dirname, "dist"),
     publicPath: "/"
+  },
+  optimization: {
+    runtimeChunk: "single"
   }
 };
