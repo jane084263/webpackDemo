@@ -1,52 +1,22 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const webpack = require("webpack");
 
 module.exports = {
-  entry: {
-    app: "./src/index.js"
-  },
+  entry: "./src/index.ts",
   devtool: "inline-source-map",
-  devServer: {
-    contentBase: "./dist",
-    hot: true
-  },
-  mode: "production",
-  optimization: {
-    usedExports: true
-  },
   module: {
     rules: [
       {
-        test: require.resolve("./src/index.js"),
-        use: "imports-loader?this=>window"
-      },
-      {
-        test: require.resolve("./src/global.js"),
-        use: "exports-loader?file,parse=helpers.parse"
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/
       }
     ]
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: "catching"
-    }),
-
-    new webpack.ProvidePlugin({
-      join: ["lodash", "join"]
-    })
-
-    // new webpack.NamedModulesPlugin(),
-    // new webpack.HotModuleReplacementPlugin()
-  ],
-  output: {
-    filename: "[name].[content].js",
-    path: path.resolve(__dirname, "dist"),
-    publicPath: "/"
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"]
   },
-  optimization: {
-    runtimeChunk: "single"
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist")
   }
 };

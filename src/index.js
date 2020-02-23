@@ -1,5 +1,6 @@
-// import _ from "lodash";
-import { file, parse } from "./src/global.js";
+import _ from "lodash";
+import "babel-polyfill";
+// import { file, parse } from "./src/global.js";
 function component() {
   var element = document.createElement("div");
   var btn = document.createElement("button");
@@ -17,4 +18,3 @@ function component() {
 }
 
 document.body.appendChild(component());
-export {};
